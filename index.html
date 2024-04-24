@@ -307,6 +307,38 @@
             document.getElementById('ctptext').style.display = "flex"
         }
 
+        // Copy the converted text functions
+
+        function CopyPlainText() {
+            var copyText= document.getElementById("ptoctext");
+            copyText.select();
+            navigator.clipboard.writeText(copyText.innerText);
+            alert ("Copied the text: " + copyText.innerText);
+        }
+
+        function CopyCipherText() {
+            var copyText= document.getElementById("ctptext");
+            copyText.select();
+            navigator.clipboard.writeText(copyText.innerHTML);
+            alert ("Copied the text: " + copyText.innerHTML);
+        }
+
+        // Validation of input function
+
+        function ValidateInput(){
+            let y = document.getElementById("ptKey").value;
+            let z = document.getElementById("ctKey").value;
+
+            let text;
+            if (isNaN(y)|| y.length >= 25 || isNaN(z) || z.length > 25){
+                text = "Keys must not exceed to 25 characters. Please retry again.";
+            } else {
+                text = "Your input has been validated.";
+            }
+            alert(text);
+
+        }
+
     
     </script>
 </body>
