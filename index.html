@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://i.pinimg.com/736x/bd/f1/11/bdf111fb4c9e39c862bbcf8d088ff651.jpg" type="image/x-icon">
+    <title>Gelly&Phemy Co.</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            color: aliceblue;
+            background: #020202;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-style: normal;
+        }
+
+        /* Main container */
+        .app {
+            width: 60%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        /* Styles for strong elements */
+        .app strong {
+            margin-top: 40px;
+        }
+
+        /* Link styles inside strong */
+        .app strong a {
+            font-size: 39px;
+            font-weight: bold;
+            color: #83d5fc;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        /* Additional heading styles */
+        .app h3 {
+            color: aquamarine;
+            font-size: 18px;
+            font-style: normal;
+        }
+
+        /* Clickable elements */
+        #ctop, #ptoc {
+            cursor: pointer;
+        }
+
+        /* Hover effect for clickable elements */
+        #ctop:hover, #ptoc:hover {
+            color: #00ff6e;
+        }
+        /* Styles for conversion section */
+        .convert {
+            display: none;
+            width: 100%;
+            height: 60%;
+            margin-top: 50px;
+            text-align: left;
+        }
+        /* Textarea styles */
+        .convert textarea {
+            background: #25252581;
+            color: white;
+            font-family: sans-serif;
+            padding: 10px;
+            font-size: 19px;
+            resize: none;
+            border-radius: 8px;
+            height: 100px;
+        }
+
+        /* Button styles */
+        #top, #toc {
+            width: 100%;
+            padding: 12px;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 40px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Primary button styles */
+        #top {
+            background: #01662d;
+        }
+
+        #top:hover {
+            background: #007f37;
+        }
+
+        /* Secondary button styles */
+        #toc {
+            background: #015663;
+        }
+
+        #toc:hover {
+            background: #007182;
+        }
+
+        /* Text styles for result */
+        .ptext, .ctext {
+            font-weight: 300;
+            font-size: 19px;
+            background: #292828;
+            padding: 12px;
+            display: none;
+        }
+
+        /* Input field styles */
+        input {
+            width: 95%;
+            background: #25252581;
+            color: white;
+            font-family: sans-serif;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 19px;
+        }
+
+        /* Label styles */
+        .secLabel, .methodLabel {
+            margin-top: 20px;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        /* Paragraph styles */
+        p {
+            color: #6a6a6a;
+        }
+
+        /* Line styles */
+        .ln {}
+
+        /* Clickable div styles */
+        #clickableDiv {
+            width: 100%;
+            height: max-content;
+            user-select: all;
+            position: relative;
+        }
+
+        /* Header styles */
+        #clickableDiv h2 {
+            background: #151515;
+            user-select: auto;
+        }
+
+        /* Hover effect for header */
+        #clickableDiv h2:hover {
+            background: #151515;
+        }
+
+        /* Link styles */
+        a {
+            color: greenyellow;
+            margin-bottom: 30px;
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 400px) {
+            .app strong a {
+                font-size: 21px;
+            }
+            .app strong {
+                font-size: 12px;
+            }
+            .app {
+                width: 85%;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="app">
+        <strong>
+            <a href="index.html">
+                Gelly & Phemy Co.
+            </a><br><br>
+            {CIPHER ENCRYPTION & DECRYPTION}
+        </strong>
+        <br>
+        <div class="ln"></div>
+        
+        <div id="cipher" class="convert">
+            <label for="ciphertext" class="methodLabel">Ciphertext: </label>
+            <br>
+            <textarea id="cipherContent" name="" id="" cols="9" rows="6" placeholder="Jxvab plie oaq fodf"></textarea>
+            <label class="secLabel">Key: </label>      
+            <br>      
+            <input id="ctKey" type="text" placeholder="Secret here..">
+            <button id="top" onclick="Decrypt()">Decrypt</button>
+            <div id="clickableDiv">
+                <h2 class="ptext" id="ctptext"></h2>
+            </div>
+        </div>
+        <div id="plain" class="convert">
+                <label for="ciphertext" class="methodLabel">Plaintext: </label>          
+            <br>
+            <textarea id="plainContent" name="" id="" cols="9" rows="6" placeholder="Lorem Ipsum dolor amet..."></textarea>        
+                <label class="secLabel">Key: </label>      
+                <br>      
+            <input id="ptKey" type="text" placeholder="Secret here..">
+            <button id="toc" onclick="Encrypt()">Encrypt</button>
+            <div id="clickableDiv">
+                <h2 class="ctext" id="ptoctext"></h2>
+            </div>
+        </div>
+        <h3>
+            <i id="ptoc">Plaintext to Ciphertext</i>
+            ||
+            <i id="ctop">Ciphertext to Plaintext</i>
+
+        </h3>
+        <p> Gelly & Phemy Co. &copy; 2024; All rights reserved.</p>
+        
+        <p><a href="https://github.com/gelsiiiella" target="_blank">MAFIA</a> & <a href="https://github.com/IFEFXX" target="_blank">BOSS</a>😉</p>
+
+    </div>
+   
+   <script>
+        const cipherDiv = document.getElementById("cipher");
+        const plainDiv = document.getElementById("plain");
+
+        const showCipher = document.getElementById("ctop");
+        const showPlain = document.getElementById("ptoc");
+
+        const ctpText = document.getElementById("ctptext");
+        const ptcText = document.getElementById("ptoctext");
+
+        const topBtn = document.getElementById("top");
+        const tocBtn = document.getElementById("toc");
+
+        // switch to ciphertext view
+        showCipher.onclick = () => {
+            cipherDiv.style.display = 'flex';
+            cipherDiv.style.flexDirection = 'column';
+            plainDiv.style.display = 'none';
+        };
+
+        // switch to plaintext view
+        showPlain.onclick = () => {
+            cipherDiv.style.display = 'none';
+            plainDiv.style.flexDirection = 'column';
+            plainDiv.style.display = 'flex';
+        };
+
+        // ensure plaintext view is displayed by default
+        window.onload = () => {
+            plainDiv.style.flexDirection = 'column';
+            plainDiv.style.display = 'flex';
+        };
+
+        // function for encryption/decryption
+        function EncryptDecryptLogic(str, key, encrypt = true) {
+            const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            const shiftedAlphabet = alphabet.slice(key.length) + alphabet.slice(0, key.length);
+            const cipher = encrypt ? shiftedAlphabet : alphabet;
+            const decipher = encrypt ? alphabet : shiftedAlphabet;
+
+            return str.split('').map(char => {
+                const index = cipher.indexOf(char);
+                return index !== -1 ? decipher[index] : char;
+            }).join('');
+        }
+
+        // Encrypt function
+        function Encrypt() {
+            const text = document.getElementById('plainContent').value;
+            const secret = document.getElementById('ptKey').value;
+            if(text == "" || secret == "") {
+                return
+            }
+            const ciphertext = EncryptDecryptLogic(text, secret);
+            document.getElementById('ptoctext').innerHTML = ciphertext;
+            document.getElementById('ptoctext').style.display = "flex"
+        }
+
+        // Decrypt function
+        function Decrypt() {
+            const text = document.getElementById('cipherContent').value;
+            const secret = document.getElementById('ctKey').value;
+            if(text == "" || secret == "") {
+                return
+            }
+            const plaintext = EncryptDecryptLogic(text, secret, false);
+            document.getElementById('ctptext').innerHTML = plaintext;
+            document.getElementById('ctptext').style.display = "flex"
+        }
+
+    
+    </script>
+</body>
+</html>
